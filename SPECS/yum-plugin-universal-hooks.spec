@@ -1,7 +1,7 @@
 Name: yum-plugin-universal-hooks
 Version: 0.2.1
 # Doing release_prefix this way for Release allows for OBS-proof versioning, See EA-4598 for more details
-%define release_prefix 14
+%define release_prefix 15
 Release: %{release_prefix}
 Summary: Yum plugin to run arbitrary commands at any slot. For slots involving package transactions it can be limited to a specific name or glob.
 
@@ -11,13 +11,13 @@ Vendor: cPanel, Inc.
 Requires: yum-utils
 
 
-BuildRequires: python38 dnf python3-dnf python3-libdnf
+BuildRequires: python39 dnf python3-dnf python3-libdnf
 Requires: python dnf python3-dnf python3-libdnf
 Provides: dnf-plugin-universal-hooks
 
 
 %define yum_pluginslib  /usr/lib/yum-plugins
-%define dnf_pluginslib  /usr/lib/python3.8/site-packages/dnf-plugins/
+%define dnf_pluginslib  /usr/lib/python3.9/site-packages/dnf-plugins/
 
 %description
 This plugin allows us to drop scripts into certain paths in order to run arbitrary actions during any slot dnf or yum supports. It can be for all packages or, if the slot involves a transaction with packages involved, for specific packages or packages that match a certain wildcard patterns.
@@ -35,8 +35,8 @@ rm -rf %{buildroot}
 %files
 %defattr(-,root,root,-)
 %{dnf_pluginslib}/universal_hooks.py
-%{dnf_pluginslib}__pycache__/universal_hooks.cpython-38.opt-1.pyc
-%{dnf_pluginslib}__pycache__/universal_hooks.cpython-38.pyc
+%{dnf_pluginslib}__pycache__/universal_hooks.cpython-39.opt-1.pyc
+%{dnf_pluginslib}__pycache__/universal_hooks.cpython-39.pyc
 %config(noreplace) %{_sysconfdir}/dnf/plugins/universal_hooks.conf
 %{_sysconfdir}/dnf/universal-hooks
 
