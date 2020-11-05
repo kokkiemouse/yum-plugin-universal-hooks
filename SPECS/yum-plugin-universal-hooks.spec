@@ -12,7 +12,7 @@ Requires: yum-utils
 
 
 BuildRequires: python38 dnf python3-dnf python3-libdnf
-Requires: python38 dnf python3-dnf python3-libdnf
+Requires: python dnf python3-dnf python3-libdnf
 Provides: dnf-plugin-universal-hooks
 
 
